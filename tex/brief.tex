@@ -1,0 +1,53 @@
+\documentclass[12pt, ngerman]{g-brief}
+\usepackage[utf8]{inputenc}
+\usepackage{graphicx}
+
+\renewcommand{\familydefault}{\sfdefault}
+\usepackage{helvet}
+
+%Silbentrennung
+\usepackage[ngerman]{babel}
+\usepackage{color}
+\definecolor{titlecolor}{rgb}{0.45,0.45,0.45}
+
+\usepackage{ifthen}
+% import adress information
+\input{tex/settings}
+
+%\fenstermarken
+\trennlinien
+\faltmarken
+%\Telefon             {\color{titlecolor} 555-55555555}
+% \HTTP                {http://www...}
+
+\Name                {\color{titlecolor} \senderName}
+\Strasse             {\color{titlecolor} \senderStreet}
+\Ort                 {\color{titlecolor} \senderZip \senderCity}
+%% \Telefon             {\color{titlecolor} \senderPhone}
+%% \EMail               {\color{titlecolor} \senderEmail}
+%\Bank                {\senderBank}
+%\BLZ                 {\senderBlz}
+%\Konto               {\senderKonto}
+\Unterschrift        {{\senderName}}
+
+%\Postvermerk         {}
+\Adresse             {\adresseeName\\\adresseeStreet\\\adresseeZip
+  \adresseeCity\isnotempty{\adresseeContactName}{\\z.Hd. \adresseeContactName}{}}
+\Betreff             {}
+\Datum               {\today}
+\Anrede              {Sehr geehrte Damen und Herren,}
+
+\Gruss               {\vspace{0.2cm} Mit freundlichen Grüßen}{0.0cm}
+\begin{document}
+\begin{g-brief}
+    \vspace{.5cm}
+
+\end{g-brief}
+
+% Signature optional
+%\begin{flushleft}
+    %%mit freundlichen Grüßen
+%\includegraphics[width=0.3\textwidth]{signature.jpg}
+%\end{flushleft}
+
+\end{document}
