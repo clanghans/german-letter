@@ -4,7 +4,7 @@
 #
 
 # Main tex file
-TARGET	= brief
+TARGET	= brief.tex
 
 # Directories
 BASEDIR = $(shell basename $(shell pwd))
@@ -13,6 +13,7 @@ TEXDIR	= tex
 
 # Binaries
 CC		= pdflatex -file-line-error -halt-on-error --output-directory=$(OUT)
+DOCKER  = docker run --rm -it -v `pwd`:/home danteev/texlive:202009150206298488ac
 VIEW	= xdg-open
 PDFTK	= pdftk
 
@@ -30,8 +31,7 @@ $(OUT):
 
 # generate pdf, put it in the OUT directory and display it
 all: $(OUT)
-	$(CC) $(TEXDIR)/$(TARGET)
-	$(VIEW) $(OUT)/$(TARGET).pdf
+	$(DOCKER) $(CC) "$(TEXDIR)/$(TARGET)"
 
 # regenerate pdf and prepend current date
 install: clean spell $(OUT)
